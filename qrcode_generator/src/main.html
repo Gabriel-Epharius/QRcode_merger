@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>QRCode Generator</title>
+
+
+  </head>
+  <link rel="stylesheet" href="main.css">
+
+  <body>
+    <div>
+      <h1 class="title">Aqui está o seu QRCode:</h1>
+    </div>
+    <div>
+      <img src="qrcode.png" alt="QR Code">
+    </div>
+  </body>
+</html>
