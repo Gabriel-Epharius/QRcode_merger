@@ -1,4 +1,5 @@
 const {app, BrowserWindow} = require('electron')
+const generateQRCode = require('./src/qrgen.js')
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -9,6 +10,8 @@ const createWindow = () => {
 }
 
 app.whenReady().then(() => {
+    generateQRCode('hello', 'src/qrcode.png');
+
     createWindow()
 
     app.on('activate', () => {
