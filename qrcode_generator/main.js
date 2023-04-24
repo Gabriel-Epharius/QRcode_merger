@@ -9,8 +9,18 @@ const createWindow = () => {
     win.loadFile('src/main.html')
 }
 
+function generateRandomCode(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+  }
+
 app.whenReady().then(() => {
-    generateQRCode('hello', 'src/qrcode.png');
+
+    generateQRCode(generateRandomCode(1000), 'src/qrcode2.png');
 
     createWindow()
 

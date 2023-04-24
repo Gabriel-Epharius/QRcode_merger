@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+  <title>QRCode Generator</title>
+
+
+  
   <head>
     <meta charset="UTF-8" />
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
@@ -11,16 +15,27 @@
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
-    <title>QRCode Generator</title>
+    
 
 
   </head>
   <link rel="stylesheet" href="main.css">
-  <script src="qrgen.js"></script>
+  <!-- <script src="qrgen.js"></script> -->
 
-  <body>
-      <h1 class="title">Aqui está o seu QRCode:</h1>
+  <body onload="draw();">
+      <!-- <h1 class="title">Aqui está o seu QRCode:</h1> -->
 
-      <img src="qrcode.png" alt="QRCODE">
+      <!-- <img src="qrcode.png" alt="QRCODE"> -->
+
+      <canvas id="canvas_ok"></canvas>
+      <script src="canvas.js"></script>
+
+
+    <!-- <h1>Fim</h1> -->
+
+      
+      
+
+      
   </body>
 </html>
