@@ -1,4 +1,5 @@
 const {app, BrowserWindow} = require('electron')
+const generateSequence = require('./src/qrgen.js')
 const generateQRCode = require('./src/qrgen.js')
 
 const createWindow = () => {
@@ -20,7 +21,8 @@ function generateRandomCode(length) {
 
 app.whenReady().then(() => {
 
-    generateQRCode(generateRandomCode(1000), 'src/qrcode2.png');
+    // generateQRCode(generateRandomCode(1000), 'src/qrcode2.png');
+    generateSequence(generateRandomCode(6000));
 
     createWindow()
 

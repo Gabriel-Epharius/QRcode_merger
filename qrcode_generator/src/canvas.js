@@ -1,38 +1,28 @@
+//import {QRCOdeGenerator} from 'qrgen.js'
 
+// import qrcode from 'qrcode';
+
+//QRCOdeGenerator('500', 'teste.png');
 
 var canvas = document.querySelector('canvas');
 
-canvas.width = 516;//window.innerWidth;
-canvas.height = 516;//window.innerHeight;
+canvas.width = 564;//window.innerWidth;
+canvas.height = 564;//window.innerHeight;
 
 var c = canvas.getContext("2d");
 
 
-// c.fillRect(50, 50, 100, 100);
-
-// const img = new Image();
-
-// img.src = 'qrcode.png';
-// img.onload = () => {
-//     c.drawImage(img, 0, 0);
-// }
-
-const images = ['qrcode1.png', 'qrcode2.png'];
+const numberImages = 6;
 let currentImage = 0;
-
-
 
 setInterval(() => {
     const img = new Image();
-    img.src = images[currentImage];
+    img.src = `./code_images/qrcode${currentImage}.png`;
     img.onload = () => {
         c.drawImage(img, 0, 0);
     }
-    currentImage = (currentImage + 1) % images.length;
-
+    currentImage = (currentImage+1) % numberImages;
 }, 500);
-
-
 
 
 console.log(canvas);
