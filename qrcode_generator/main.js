@@ -3,9 +3,10 @@ const generateSequence = require('./src/qrgen.js')
 const generateQRCode = require('./src/qrgen.js')
 
 const createWindow = () => {
+    const multiplier = 1.2;
     const win = new BrowserWindow({
-        width: 800,
-        height: 600
+        width: 800*multiplier,
+        height: 600*multiplier
     })
     win.loadFile('src/main.html')
 }
