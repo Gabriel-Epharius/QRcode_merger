@@ -22,7 +22,6 @@ function generateRandomCode(length) {
 
 app.whenReady().then(() => {
 
-    // generateQRCode(generateRandomCode(1000), 'src/qrcode2.png');
     generateSequence(generateRandomCode(6000));
 
     createWindow()

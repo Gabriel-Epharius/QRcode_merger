@@ -13,7 +13,7 @@ const generateQRCode = async (text, outputFilePath) => {
   }
 };
 
-const drawQRCode =async (text, canvas) => {
+const drawQRCode =async (text, canvas) => {     
     try {
         const qrCodeDataUrl = await qrcode.toDataURL(text);
         const qrCodeImage = new Image();

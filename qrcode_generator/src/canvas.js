@@ -20,7 +20,7 @@ ctx.strokeStyle = '#0';
 ctx.globalAlpha = 1;
 ctx.lineWidth = 5;
 
-const numberImages = 6;
+const numberImages = 9;
 let currentImage = 0;
 ctx.strokeRect(horizontalMargingBar, heightQRCode + verticalMargingBar, 
     (widthProgressBar-horizontalMargingBar-horizontalMargingBar), heightProgressBar);
