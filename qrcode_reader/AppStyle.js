@@ -1,15 +1,6 @@
 import {
-    SafeAreaView,
     StyleSheet,
-    Text,
-    useColorScheme,
-    View,
-    TouchableOpacity
   } from 'react-native';
-  
-  import {
-    Colors,
-  } from 'react-native/Libraries/NewAppScreen';
 
 export const styles = StyleSheet.create({
   screen: {
