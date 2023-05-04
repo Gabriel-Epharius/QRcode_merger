@@ -1,159 +1,113 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+// /**
+//  * Sample React Native App
+//  * https://github.com/facebook/react-native
+//  *
+//  * @format
+//  * @flow strict-local
+//  */
 
 import React, {PureComponent} from 'react';
 import type {Node} from 'react';
 
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   useColorScheme,
   View,
+  TouchableOpacity
 } from 'react-native';
 
 import {
   Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
 import { RNCamera, FaceDetector } from 'react-native-camera';
-import { AppRegistry } from 'react-native';
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+
+const App: () => Node = () => {
+
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View style={styles.screen}>
+      <SafeAreaView style={styles.saveArea}>
+        <View style={styles.topBar}>
+          <Text style={styles.topBarTitleText}>ReactNative Scanner</Text>
+        </View>
+      </SafeAreaView>
+
+      <View style={styles.caption}>
+        <Text style={styles.captionTitleText}>Welcome to ReactNative</Text>
+      </View>
+
+    <RNCamera style={styles.rnCamera}></RNCamera>
+
+      <View style={styles.cameraControl}>
+        <TouchableOpacity style={styles.btn}>
+          <Text style={styles.btnText}>New QR Scan</Text>
+        </TouchableOpacity>
+      </View>
+
     </View>
   );
 };
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One!">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-class ExampleApp extends PureComponent {
-  render() {
-    return (
-      <View style={styles.container}>
-        <RNCamera
-          ref={ref => {
-            this.camera = ref;
-          }}
-          style={styles.preview}
-          type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.on}
-          androidCameraPermissionOptions={{
-            title: 'Permission to use camera',
-            message: 'We need your permission to use your camera',
-            buttonPositive: 'Ok',
-            buttonNegative: 'Cancel',
-          }}
-          androidRecordAudioPermissionOptions={{
-            title: 'Permission to use audio recording',
-            message: 'We need your permission to use your audio',
-            buttonPositive: 'Ok',
-            buttonNegative: 'Cancel',
-          }}
-          onGoogleVisionBarcodesDetected={({ barcodes }) => {
-            console.log(barcodes);
-          }}
-        />
-      </View>
-    );
-  }
-
-  takePicture = async () => {
-    if (this.camera) {
-      const options = { quality: 0.5, base64: true };
-      const data = await this.camera.takePictureAsync(options);
-      console.log(data.uri);
-    }
-  };
-}
-
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
+  screen: {
+    flex: 1,
+    backgroundColor: '##F2F2FC',
+  },
+  saveArea: {
+    backgroundColor: '#62d1bc',
+  },
+  topBar: {
+    height: 50,
+    backgroundColor: '#62d1bc',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  topBarTitleText: {
+    color: '#ffffff',
+    fontSize: 20,
+  },
+  caption: {
+    height: 120,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  captionTitleText: {
+    color: '#121B0D',
+    fontSize: 16,
+    fontWeight: '600'
+  },
+  btn: {
+    width: 240,
+    borderRadius: 4,
+    backgroundColor: '#62d1bc',
     paddingHorizontal: 24,
+    paddingVertical: 12,
+    marginVertical: 8,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
+  btnText: {
     fontSize: 18,
-    fontWeight: '400',
+    color: '#ffffff',
+    textAlign: 'center',
   },
-  highlight: {
-    fontWeight: '700',
+  cameraControl: {
+    height: 180,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
+  rnCamera: {
+    flex: 1,
+    width: '94%',
+    alignSelf: 'center',
+  }
 });
+
+
+
 
 export default App;
 
-AppRegistry.registerComponent('App', () => ExampleApp);
+// AppRegistry.registerComponent('App', () => ExampleApp);
