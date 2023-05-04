@@ -6,7 +6,7 @@
 //  * @flow strict-local
 //  */
 
-import React, {PureComponent} from 'react';
+import React, {PureComponent, useState} from 'react';
 import type {Node} from 'react';
 
 import {
@@ -27,6 +27,8 @@ import { RNCamera, FaceDetector } from 'react-native-camera';
 
 const App: () => Node = () => {
 
+  const [barcode, setBarcode] = useState(null);
+
   return (
     <View style={styles.screen}>
       <SafeAreaView style={styles.saveArea}>
@@ -39,7 +41,17 @@ const App: () => Node = () => {
         <Text style={styles.captionTitleText}>Welcome to ReactNative</Text>
       </View>
 
-    <RNCamera style={styles.rnCamera}></RNCamera>
+    {barcode ? (
+      <View style={[styles.rnCamera, styles.rnCameraResult]}>
+        <Text style={styles.rnCameraResultText}>{barcode.data}</Text>
+        <Text style={styles.rnCameraResultText}>{barcode.type}</Text>
+      </View>
+    ) : (
+      <RNCamera 
+        style={styles.rnCamera}
+        onBarCodeRead={setBarcode}
+        ></RNCamera>
+    )}
 
       <View style={styles.cameraControl}>
         <TouchableOpacity style={styles.btn}>
@@ -102,7 +114,16 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '94%',
     alignSelf: 'center',
-  }
+  },
+  rnCameraResult: {
+    justifyContent: 'center',
+    alignContent: 'center',
+    backgroundColor: '#eeeeee',
+  },
+  rnCameraResultText: {
+    fontSize: 20,
+    color: '#621dbc',
+  },
 });
 
 
