@@ -37,7 +37,7 @@ const App: () => Node = () => {
     <View style={styles.screen}>
       <SafeAreaView style={styles.saveArea}>
         <View style={styles.topBar}>
-          <Text style={styles.topBarTitleText}>ReactNative Scanner</Text>
+          <Text style={styles.topBarTitleText}>QRCode Merger</Text>
         </View>
       </SafeAreaView>
 
@@ -59,7 +59,7 @@ const App: () => Node = () => {
 
       <View style={styles.cameraControl}>
         <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnText}>New QR Scan</Text>
+          <Text style={styles.btnText}> Voltar </Text>
         </TouchableOpacity>
       </View>
 

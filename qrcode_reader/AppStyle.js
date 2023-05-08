@@ -32,11 +32,14 @@ export const styles = StyleSheet.create({
   },
   btn: {
     width: 240,
-    borderRadius: 4,
+    borderRadius: 2,
     backgroundColor: '#62d1bc',
+    paddingVertical: 20,
     paddingHorizontal: 24,
-    paddingVertical: 12,
+    paddingVertical: 15,
     marginVertical: 8,
+    marginTop: 30
+
   },
   btnText: {
     fontSize: 18,
@@ -50,7 +53,7 @@ export const styles = StyleSheet.create({
   },
   rnCamera: {
     flex: 1,
-    width: '94%',
+    width: '80%',
     alignSelf: 'center',
   },
   rnCameraResult: {
