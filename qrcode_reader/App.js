@@ -32,6 +32,20 @@ import { RNCamera} from 'react-native-camera';
 const App: () => Node = () => {
 
   const [barcode, setBarcode] = useState(null);
+  const [circleColors, setCircleColors] = useState(['red', 'red', 'red', 'red', 'red','red']);
+  
+
+  const changeCircleColor = (index) => {
+    const updateColors = [...circleColors];
+    if (updateColors[index] === 'red') {
+      updateColors[index] = 'green';
+    } else {
+      updateColors[index] = 'red';
+    }
+    setCircleColors(updateColors);
+  };
+
+  
 
   return (
     <View style={styles.screen}>
@@ -45,6 +59,8 @@ const App: () => Node = () => {
         <Text style={styles.captionTitleText}>Welcome to ReactNative</Text>
       </View>
 
+    
+
     {barcode ? (
       <View style={[styles.rnCamera, styles.rnCameraResult]}>
         <Text style={styles.rnCameraResultText}>{barcode.data}</Text>
@@ -56,6 +72,17 @@ const App: () => Node = () => {
         onBarCodeRead={setBarcode}
         ></RNCamera>
     )}
+
+    <View style={styles.circleContainer}>
+      {circleColors.map((color, index) => (
+        <TouchableOpacity
+          key={index}
+          style={[styles.circle, {backgroundColor: color}]}
+          onPress = { () => changeCircleColor(index)}
+          />
+      ))}
+    </View>
+
 
       <View style={styles.cameraControl}>
         <TouchableOpacity style={styles.btn}>

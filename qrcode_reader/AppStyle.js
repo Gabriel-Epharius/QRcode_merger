@@ -47,7 +47,8 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   cameraControl: {
-    height: 180,
+    marginTop: 0,
+    height: 150,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -64,5 +65,19 @@ export const styles = StyleSheet.create({
   rnCameraResultText: {
     fontSize: 20,
     color: '#621dbc',
+  },
+  circleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 10,
+    marginBottom: 20
+  },
+  circle: {
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    backgroundColor: 'red',
+    marginTop: 60,
+    marginHorizontal: 5,
   },
 });
