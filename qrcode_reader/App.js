@@ -33,6 +33,9 @@ const App: () => Node = () => {
 
   const [barcode, setBarcode] = useState(null);
   const [circleColors, setCircleColors] = useState(['red', 'red', 'red', 'red', 'red','red']);
+  const slicedKey = ["1", "2", "3", "4", "5", "6"];
+
+
   
 
   const changeCircleColor = (index) => {
@@ -44,6 +47,28 @@ const App: () => Node = () => {
     }
     setCircleColors(updateColors);
   };
+
+  const handleBarcodeRead = (event) => {
+    if (event.data) {
+      setBarcode(event.data);
+      console.log(event.type);
+    }
+  };
+
+  const parseBarcode = (data) => {
+    return null;
+  }
+
+  const eraseKeySlice = (index) => {
+    const updateColors = [...circleColors];
+    if (index >= 0 || index < 6) {
+      slicedKey[index] = "";
+      updateColors[index] = "red";
+    }
+
+    console.log(slicedKey[index]);
+  }
+  
 
   
 
@@ -61,7 +86,7 @@ const App: () => Node = () => {
 
     
 
-    {barcode ? (
+    {/* {barcode ? (
       <View style={[styles.rnCamera, styles.rnCameraResult]}>
         <Text style={styles.rnCameraResultText}>{barcode.data}</Text>
         <Text style={styles.rnCameraResultText}>{barcode.type}</Text>
@@ -71,14 +96,19 @@ const App: () => Node = () => {
         style={styles.rnCamera}
         onBarCodeRead={setBarcode}
         ></RNCamera>
-    )}
+    )} */}
+
+    <RNCamera
+      style={styles.rnCamera}
+      onBarCodeRead={handleBarcodeRead}>
+    </RNCamera>
 
     <View style={styles.circleContainer}>
       {circleColors.map((color, index) => (
         <TouchableOpacity
           key={index}
           style={[styles.circle, {backgroundColor: color}]}
-          onPress = { () => changeCircleColor(index)}
+          onPress = { () => eraseKeySlice(index)}
           />
       ))}
     </View>
@@ -93,9 +123,6 @@ const App: () => Node = () => {
     </View>
   );
 };
-
-
-
 
 export default App;
 

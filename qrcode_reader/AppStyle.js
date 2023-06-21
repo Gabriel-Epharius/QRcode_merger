@@ -54,8 +54,9 @@ export const styles = StyleSheet.create({
   },
   rnCamera: {
     flex: 1,
-    width: '80%',
+    width: '60%',
     alignSelf: 'center',
+    marginBottom: 50,
   },
   rnCameraResult: {
     justifyContent: 'center',
